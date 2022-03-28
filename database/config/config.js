@@ -3,7 +3,7 @@ module.exports = {
     "port":"3330",
     "username": "root",
     "password": '123456',
-    "database": "mundodisney_db",
+    "database": "mundodisney",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

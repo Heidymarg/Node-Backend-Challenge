@@ -12,22 +12,24 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(80),
             allowNull: false
         },
+        imagen:{
+            type: dataTypes.STRING(350),
+        }
         
     };
     let config = {
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        tableName: 'generos',
+        timestamps: false
+       
     }
     const Generos = sequelize.define(alias, cols, config);
 
-   // Generos.associate = function(models) {
-       // Generos.hasMany(models.peliculas { // models.Movies -> Movie es el valor de alias en movie.js
-            //as: "peliculas", // El nombre del modelo pero en plural
-           // foreignKey: "generos_id"
-       // })
-    //}
+   Generos.associate = function(models) {
+   Generos.hasMany(models.Pelicula, {
+        as: "pelicula",
+        foreignKey: "id_generos"
+        })
+    }
 
     return Generos
 };
